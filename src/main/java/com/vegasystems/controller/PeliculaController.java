@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.vegasystems.dto.PeliculaDTO;
 import com.vegasystems.dto.ResumenPeliculaDTO;
+import com.vegasystems.service.IGeneroService;
 import com.vegasystems.service.IPeliculaService;
 
 import lombok.AllArgsConstructor;
@@ -24,6 +25,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class PeliculaController {
 	private IPeliculaService peliculaService;
+	private IGeneroService generoService;
 	
 	@PostMapping(value = "/save",consumes = {MediaType.APPLICATION_JSON_VALUE,
 											 MediaType.MULTIPART_FORM_DATA_VALUE})
@@ -39,5 +41,12 @@ public class PeliculaController {
 		List<PeliculaDTO> peliculas = peliculaService.buscarPorTitulo(titulo);
 		return ResponseEntity.ok(peliculas);
 	}
+	
+	@GetMapping("/findbygenre/{genero}")
+	public ResponseEntity<List<PeliculaDTO>> buscarPorGenero(@PathVariable String genero){
+		List<PeliculaDTO> peliculas = generoService.obtenerPorGenero(genero);
+		return ResponseEntity.ok(peliculas);
+	}
+	
 }
 
