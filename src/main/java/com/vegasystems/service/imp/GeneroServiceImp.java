@@ -3,8 +3,6 @@ package com.vegasystems.service.imp;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.vegasystems.dto.GeneroDTO;
 import com.vegasystems.dto.PeliculaDTO;
@@ -13,9 +11,7 @@ import com.vegasystems.dto.mapper.PeliculaMapper;
 import com.vegasystems.entity.Genero;
 import com.vegasystems.repository.IGeneroRepository;
 import com.vegasystems.service.IGeneroService;
-
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 @Service
 @AllArgsConstructor
